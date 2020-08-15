@@ -29,6 +29,7 @@
       filled
       placeholder="Description...."
       rows="10"
+      :rules="[resultDescriptionError]"
       :value="recipe.description"
       :no-resize="true"
       @input="(value) => onUpdateRecipe('description', value)"
@@ -62,6 +63,9 @@ export default Vue.extend({
   computed: {
     resultRecipeError(): boolean | string {
       return this.recipeError.name.succeeded || this.recipeError.name.message;
+    },
+    resultDescriptionError(): boolean | string {
+      return this.recipeError.description.succeeded || this.recipeError.description.message;
     },
   },
 });
