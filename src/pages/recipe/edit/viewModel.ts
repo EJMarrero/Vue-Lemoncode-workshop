@@ -2,6 +2,7 @@ import { ValidationResult, createDefaultValidationResult } from "@lemoncode/fonk
 
 export interface Recipe {
   id: number;
+  image: string;
   name: string;
   description: string;
   ingredients: string[];
@@ -9,6 +10,7 @@ export interface Recipe {
 
 export const createEmptyRecipe = (): Recipe => ({
   id: 0,
+  image: '',
   name: "",
   description: "",
   ingredients: [],

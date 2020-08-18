@@ -12,9 +12,10 @@ module.exports = (env, argv) => {
   return {
     context: path.join(basePath, "src"),
     resolve: {
-      extensions: [".js", ".ts", ".vue"],
+      extensions: ["*", ".js", ".ts", ".vue"],
       alias: {
         vue: "vue/dist/vue.runtime.esm.js",
+        '@': path.join(basePath, 'src'),
       },
     },
     entry: {
@@ -25,6 +26,7 @@ module.exports = (env, argv) => {
     output: {
       path: path.join(basePath, "dist"),
       filename: "[name].js",
+      chunkFilename: '[name].bundle.js',
     },
     optimization: {
       splitChunks: {
@@ -77,6 +79,23 @@ module.exports = (env, argv) => {
             },
             {
               use: [isDev ? "vue-style-loader" : MiniCssExtractPlugin.loader, "css-loader"],
+            },
+          ],
+        },
+        {
+          test: /\.(png|jpe?g|gif|webp)(\?.*)?$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                // limit: 4096,
+                fallback: {
+                  loader: 'file-loader',
+                  options: {
+                    name: 'img/[name].[hash:8].[ext]',
+                  },
+                },
+              },
             },
           ],
         },

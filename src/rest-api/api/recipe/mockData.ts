@@ -3,6 +3,7 @@ import { Recipe } from "../../model";
 export const mockRecipes: Recipe[] = [
   {
     id: 1,
+    image: 'src/common/img/omelette.webp',
     name: "Omelette",
     description: `
      1. For a basic omelette, crack the eggs into a mixing bowl with a pinch of sea salt and black pepper. Beat well with a fork.
@@ -14,6 +15,7 @@ export const mockRecipes: Recipe[] = [
   },
   {
     id: 2,
+    image: 'src/common/img/saladTomatoes.webp',
     name: "Salad with tomatoes",
     description: `
      1. Combine salad, tomatoes, avocados, garlic and onion in a large bowl.
@@ -24,6 +26,7 @@ export const mockRecipes: Recipe[] = [
   },
   {
     id: 3,
+    image: 'src/common/img/spagettiTomatoSauce.webp',
     name: "Spaghetti with tomato sauce",
     description: `
      1. Brown beef over medium heat. Drain off fat.

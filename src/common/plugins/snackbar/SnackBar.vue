@@ -21,7 +21,6 @@
     },
     mounted() {
       events.$on('show', (payload) => {
-        debugger;
         this.snackbar.message = payload.message;
         this.snackbar.color = payload.color;
         this.snackbar.show = true;
